@@ -15,9 +15,7 @@
             <!-- LOGO SPACE -->
             <div class="flex items-center space-x-2">
                 <!-- Replace with your logo image later -->
-                <div class="w-10 h-10 bg-blue-600 rounded flex items-center justify-center text-white font-bold">
-                    YB
-                </div>
+                <img src="{{ asset('images/logo_blue.png') }}" alt="YourBrand" class="h-10">
                 <span class="text-xl font-semibold text-gray-800">
                     DesigntheSite
                 </span>
@@ -25,7 +23,7 @@
 
             <!-- LOGIN BUTTON -->
             <a href="{{ route('login') }}"
-               class="text-sm font-medium text-white bg-blue-600 px-5 py-2 rounded-lg hover:bg-blue-700 transition">
+               class="text-sm font-medium text-white bg-brand px-5 py-2 rounded-lg hover:bg-brand-dark transition">
                 Login
             </a>
         </div>
@@ -45,7 +43,7 @@
             </p>
 
             <a href="{{ route('login') }}"
-               class="inline-block bg-blue-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-blue-700 transition">
+               class="inline-block bg-brand text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-brand-dark transition">
                 Client Login
             </a>
         </section>
