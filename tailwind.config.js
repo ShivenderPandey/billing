@@ -10,12 +10,19 @@ export default {
     ],
 
     theme: {
-        extend: {
-            fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+    extend: {
+        fontFamily: {
+            sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+        },
+        colors: {
+            brand: {
+                DEFAULT: '#1f5abc',
+                dark: '#184a9a',
+                light: '#2a6fd6',
             },
         },
     },
+  },
 
     plugins: [forms],
 };
