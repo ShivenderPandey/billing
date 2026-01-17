@@ -34,7 +34,6 @@ class WebsiteController extends Controller
             'billing_currency'  => 'nullable|string|max:10',
             'billing_frequency' => 'required|string',
             'expiry_date'       => 'required|date',
-            'status'            => 'required|string',
             'notes'             => 'nullable|string',
         ]);
 
