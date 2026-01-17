@@ -26,7 +26,7 @@ class WebsiteController extends Controller
 
     public function store(Request $request)
     {
-        $data = $request->validate([
+        $request->validate([
             'user_id'           => 'required|exists:users,id',
             'name'              => 'required|string|max:255',
             'domain'            => 'required|string|max:255|unique:websites,domain',
