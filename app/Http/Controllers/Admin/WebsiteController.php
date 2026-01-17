@@ -42,10 +42,12 @@ class WebsiteController extends Controller
             'user_id' => $request->user_id,
             'name' => $request->name,
             'domain' => $request->domain,
-            'expiry_date' => $request->expiry_date,
             'billing_amount' => $request->billing_amount,
+            'billing_currency' => strtoupper($request->billing_currency),
             'billing_frequency' => $request->billing_frequency,
+            'expiry_date' => $request->expiry_date,
             'status' => 'active',
+            'notes' => $request->notes,
         ]);
 
         return redirect()
