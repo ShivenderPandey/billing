@@ -25,6 +25,7 @@
                     <th class="p-2">User</th>
                     <th class="p-2">Expiry</th>
                     <th class="p-2">Billing</th>
+                    <th class="p-2">Currency</th>
                 </tr>
             </thead>
 
@@ -40,6 +41,12 @@
                         <td class="p-2">
                             ₹{{ $site->billing_amount }} / {{ ucfirst($site->billing_frequency) }}
                         </td>
+                        <td class="p-2">
+                            {{ $site->billing_currency }}
+                            {{ number_format($site->billing_amount, 2) }}
+                            / {{ ucfirst($site->billing_frequency) }}
+                        </td>
+
                     </tr>
                 @endforeach
             </tbody>

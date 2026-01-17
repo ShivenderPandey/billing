@@ -32,6 +32,17 @@
                 <option value="monthly">Monthly</option>
             </select>
 
+            <label class="block font-medium">Billing Currency</label>
+            <input name="billing_currency"
+                value="INR"
+                class="w-full border p-2 mb-4"
+                placeholder="INR, USD, EUR">
+            <label class="block font-medium">Notes</label>
+            <textarea name="notes"
+                    class="w-full border p-2 mb-4"
+                    placeholder="Any remarks or billing notes"></textarea>
+
+
             <button class="bg-brand text-white px-4 py-2 rounded">
                 Save Website
             </button>
