@@ -19,6 +19,7 @@ Route::middleware(['auth', 'admin'])
     ->group(function () {
         Route::get('/dashboard', [AdminDashboardController::class, 'index'])
             ->name('dashboard');
+        Route::resource('websites', WebsiteController::class);
     });
 
 Route::middleware('auth')->group(function () {

@@ -12,15 +12,15 @@ class WebsiteController extends Controller
      public function index()
     {
         $websites = Website::with('user')
-            ->orderBy('expiry_date')
-            ->paginate(20);
-
+            ->latest()
+            ->get();
+            
         return view('admin.websites.index', compact('websites'));
     }
 
     public function create()
     {
-        $users = User::orderBy('name')->get();
+        $users = User::where('role', 'user')->get();
         return view('admin.websites.create', compact('users'));
     }
 
@@ -38,7 +38,15 @@ class WebsiteController extends Controller
             'notes'             => 'nullable|string',
         ]);
 
-        Website::create($data);
+        Website::create([
+            'user_id' => $request->user_id,
+            'name' => $request->name,
+            'domain' => $request->domain,
+            'expiry_date' => $request->expiry_date,
+            'billing_amount' => $request->billing_amount,
+            'billing_frequency' => $request->billing_frequency,
+            'status' => 'active',
+        ]);
 
         return redirect()
             ->route('admin.websites.index')
