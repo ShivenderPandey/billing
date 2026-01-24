@@ -21,9 +21,10 @@ Route::middleware(['auth', 'admin'])
         Route::get('/dashboard', [AdminDashboardController::class, 'index'])
             ->name('dashboard');
         Route::resource('websites', WebsiteController::class);
+        Route::resource('users', UserController::class);
     });
 
-Route::resource('users', UserController::class);
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
