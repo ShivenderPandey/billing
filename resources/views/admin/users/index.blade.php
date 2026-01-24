@@ -37,18 +37,18 @@
                     <tbody>
                         @forelse($users as $user)
                             <tr class="border-t hover:bg-gray-50">
-                                <td class="px-5 py-3 text-gray-600">
+                                <td class="px-8 py-3 text-gray-600">
                                     {{ $loop->iteration }}
                                 </td>
-                                <td class="px-5 py-3">{{ $user->name }}</td>
-                                <td class="px-5 py-3">{{ $user->email }}</td>
-                                <td class="px-5 py-3 capitalize">
+                                <td class="px-8 py-3">{{ $user->name }}</td>
+                                <td class="px-8 py-3">{{ $user->email }}</td>
+                                <td class="px-8 py-3 capitalize">
                                     {{ $user->role }}
                                 </td>
-                                <td class="px-5 py-3">
+                                <td class="px-8 py-3">
                                     {{ $user->phone ?? '-' }}
                                 </td>
-                                <td class="px-5 py-3 space-x-3">
+                                <td class="px-8 py-3 space-x-3">
                                     <a href="{{ route('admin.users.edit', $user) }}"
                                        class="text-blue-600 hover:underline">
                                         Edit
@@ -68,7 +68,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="6" class="px-5 py-6 text-center text-gray-500">
+                                <td colspan="6" class="px-8 py-6 text-center text-gray-500">
                                     No users found
                                 </td>
                             </tr>
