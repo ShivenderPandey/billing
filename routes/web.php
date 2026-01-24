@@ -4,7 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\WebsiteController;
-
+use App\Http\Controllers\Admin\UserController;
 
 Route::get('/', function () {
     return view('home');
@@ -22,6 +22,8 @@ Route::middleware(['auth', 'admin'])
             ->name('dashboard');
         Route::resource('websites', WebsiteController::class);
     });
+
+Route::resource('users', UserController::class);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

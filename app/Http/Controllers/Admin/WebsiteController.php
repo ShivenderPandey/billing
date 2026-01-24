@@ -48,9 +48,42 @@ class WebsiteController extends Controller
             'status' => 'active',
             'notes' => $request->notes,
         ]);
-
-        return redirect()
+    
+    return redirect()
             ->route('admin.websites.index')
             ->with('success', 'Website created.');
     }
+public function edit(Website $website)
+    {
+        $users = User::where('role', 'user')->get();
+        return view('admin.websites.edit', compact('website', 'users'));
+    }
+    
+    public function update(Request $request, Website $website)
+    {
+        $request->validate([
+            'user_id' => 'required|exists:users,id',
+            'name' => 'required|string|max:255',
+            'domain' => 'required|string|max:255|unique:websites,domain,' . $website->id,
+            'billing_amount' => 'required|numeric',
+            'billing_currency' => 'required|string|size:3',
+            'billing_frequency' => 'required|in:monthly,yearly',
+            'expiry_date' => 'required|date',
+            'status' => 'required|in:active,expired',
+            'notes' => 'nullable|string',
+        ]);
+    
+        $website->update($request->all());
+    
+        return redirect()->route('admin.websites.index')
+            ->with('success', 'Website updated');
+    }
+    
+    public function destroy(Website $website)
+    {
+        $website->delete();
+        return back()->with('success', 'Website deleted');
+    }
+    
+
 }

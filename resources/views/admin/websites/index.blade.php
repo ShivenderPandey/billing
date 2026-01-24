@@ -29,6 +29,8 @@
                             <th class="px-6 py-3 text-left">Expiry</th>
                             <th class="px-6 py-3 text-left">Billing</th>
                             <th class="px-6 py-3 text-left">Status</th>
+                            <th class="px-6 py-3 text-left">Actions</th>
+
                         </tr>
                     </thead>
                     @php
@@ -61,6 +63,23 @@
                                       <span class="bg-green-100 text-green-700 px-2 py-1 rounded">Active</span>
                                   @endif
                                 </td>
+                                <td class="px-5 py-3 space-x-2">
+                                  <a href="{{ route('admin.websites.edit', $site) }}"
+                                     class="text-blue-600 hover:underline">
+                                      Edit
+                                  </a>
+                              
+                                  <form action="{{ route('admin.websites.destroy', $site) }}"
+                                        method="POST"
+                                        class="inline">
+                                      @csrf
+                                      @method('DELETE')
+                                      <button class="text-red-600 hover:underline"
+                                              onclick="return confirm('Delete this website?')">
+                                          Delete
+                                      </button>
+                                  </form>
+                              </td>
                             </tr>
                         @endforeach
                     </tbody>
